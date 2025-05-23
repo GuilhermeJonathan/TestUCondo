@@ -1,0 +1,44 @@
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using TestUCondo.Application.Commands.UsuarioModule.Handler;
+using TestUCondo.Application.Queries.UsuarioModule.Handler;
+using TestUCondo.Domain.Entities.Repositories;
+using TestUCondo.Infra.Data.Context;
+using TestUCondo.Infra.Data.Repository;
+using FluentValidation;
+using TestUCondo.Application.Commands.UsuarioModule.Validations;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateUserCommandHandler).Assembly));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetUserByIdQueryHandler).Assembly));
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddDbContext<DefaultDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")       
+    ));
+
+builder.Services.AddValidatorsFromAssemblyContaining<CreateUserCommandValidator>();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
