@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TestUCondo.Application.CrossCutting.Enum;
+﻿using TestUCondo.Application.CrossCutting.Enum;
 
 namespace TestUCondo.Application.CrossCutting.DTO.Accounts
 {
@@ -11,7 +6,10 @@ namespace TestUCondo.Application.CrossCutting.DTO.Accounts
     {
         public int Id { get; set; }
         public string Descricao { get; set; }
+        public string Codigo { get; set; }
         public AccountTypeEnum Tipo { get; set; }
+        public bool AceitaLancamento { get; set; }
         public int? IdPai { get; set; }
+        public DateTime? DataAlteracao { get; set; }
     }
 }

@@ -24,5 +24,16 @@ namespace TestUCondo.Domain.Entities
         [ForeignKey(nameof(IdPai))]
         public virtual Account? Pai { get; set; }
         public virtual ICollection<Account> Filhos { get; set; } = new List<Account>();
+
+        public void SetUpdate(string codigo, string descricao, AccountTypeEnum tipo, bool aceitaLancamento,
+            long? idPai = null) 
+        {
+            Codigo = codigo;
+            Descricao = descricao;
+            Tipo = tipo;
+            AceitaLancamento = aceitaLancamento;
+            IdPai = idPai;
+            DataAlteracao = DateTime.UtcNow;
+        }
     }
 }

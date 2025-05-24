@@ -65,9 +65,9 @@ namespace TestUCondo.Infra.Data.Repository.Base
             GC.SuppressFinalize(this);
         }
 
-        public virtual async Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> predicate)
+        public virtual async Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken)
         {
-            return await _context.Set<TEntity>().AnyAsync(predicate);
+            return await _context.Set<TEntity>().AnyAsync(predicate, cancellationToken);
         }
 
         public IEnumerable<TEntity> GetAll()
@@ -80,9 +80,9 @@ namespace TestUCondo.Infra.Data.Repository.Base
             return await _context.Set<TEntity>().ToListAsync();
         }
 
-        public virtual async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate)
+        public virtual async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken)
         {
-            return await _context.Set<TEntity>().FirstOrDefaultAsync(predicate);
+            return await _context.Set<TEntity>().FirstOrDefaultAsync(predicate, cancellationToken);
         }
 
         public TEntity GetById(long id)

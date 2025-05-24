@@ -12,8 +12,8 @@ namespace TestUCondo.Domain.Entities.Repositories
         void DeleteRange(IEnumerable<TEntity> entities);
         Task DeleteAsync(TEntity entity);
         Task DeleteRangeAsync(IEnumerable<TEntity> entities);
-        Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> predicate);
-        Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken);
+        Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken);
         Task<IEnumerable<TEntity>> GetAllAsync();
         IEnumerable<TEntity> GetAll();
         TEntity GetById(long id);

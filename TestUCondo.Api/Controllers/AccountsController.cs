@@ -28,5 +28,18 @@ namespace TestUCondo.Api.Controllers
 
             return BadRequest(result);
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(long id, [FromBody] UpdateAccountCommand command)
+        {
+            if (id != command.Id)
+                return BadRequest("Id in URL and body must match.");
+
+            var result = await _mediator.Send(command);
+            if (result.Success)
+                return Ok(result);
+
+            return BadRequest(result);
+        }
     }
 }

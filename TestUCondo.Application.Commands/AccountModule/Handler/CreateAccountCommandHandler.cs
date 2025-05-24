@@ -51,12 +51,12 @@ namespace TestUCondo.Application.Commands.AccountModule.Handler
         #region Métodos Privados
         private async Task<Account> GetPaiAsync(long id, CancellationToken cancellationToken)
         {
-            return await _accountRepository.GetAsync(a => a.Id == id);
+            return await _accountRepository.GetAsync(a => a.Id == id, cancellationToken);
         }
 
         private async Task<bool> CodigoJaExisteAsync(string codigo, CancellationToken cancellationToken)
         {
-            return await _accountRepository.ExistsAsync(a => a.Codigo == codigo);
+            return await _accountRepository.ExistsAsync(a => a.Codigo == codigo, cancellationToken);
         }
         #endregion
     }
