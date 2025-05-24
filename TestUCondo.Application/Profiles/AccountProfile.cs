@@ -9,6 +9,7 @@ namespace TestUCondo.Application.Profiles
         public AccountProfile()
         {
             CreateMap<Account, AccountDTO>();
+            CreateMap<Account, AccountResumeDTO>();
         }
     }
 }

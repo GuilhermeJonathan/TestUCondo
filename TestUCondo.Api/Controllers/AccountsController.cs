@@ -60,6 +60,13 @@ namespace TestUCondo.Api.Controllers
             return Ok(result);
         }
 
+        [HttpGet("active")]
+        public async Task<IActionResult> GetActiveAccounts()
+        {
+            var result = await _mediator.Send(new GetActiveAccountsQuery());
+            return Ok(result);
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(long id)
         {

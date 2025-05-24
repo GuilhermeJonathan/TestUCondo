@@ -5,8 +5,13 @@ namespace TestUCondo.Domain.Entities
 {
     public class Account : EntidadeBase
     {
+        public Account() : base()
+        {
+            Ativo = true;
+        }
+
         public Account(string codigo, string descricao, AccountTypeEnum tipo, bool aceitaLancamento,
-            long? idPai = null)
+            long? idPai = null) : this()
         {
             Codigo = codigo;
             Descricao = descricao;
@@ -19,6 +24,7 @@ namespace TestUCondo.Domain.Entities
         public string? Descricao { get; set; }
         public bool AceitaLancamento { get; set; }
         public AccountTypeEnum Tipo { get; set; }
+        public bool Ativo { get; set; }
 
         public long? IdPai { get; set; }
         [ForeignKey(nameof(IdPai))]
@@ -26,7 +32,7 @@ namespace TestUCondo.Domain.Entities
         public virtual ICollection<Account> Filhos { get; set; } = new List<Account>();
 
         public void SetUpdate(string codigo, string descricao, AccountTypeEnum tipo, bool aceitaLancamento,
-            long? idPai = null) 
+            long? idPai = null)
         {
             Codigo = codigo;
             Descricao = descricao;
