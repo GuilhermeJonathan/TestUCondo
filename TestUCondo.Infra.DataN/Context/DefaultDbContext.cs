@@ -10,6 +10,7 @@ namespace TestUCondo.Infra.Data.Context
         }
 
         public DbSet<User> Usuarios { get; set; }
+        public DbSet<Account> Accounts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -6,52 +6,52 @@ using TestUCondo.Infra.Data.Repository.Base;
 
 namespace TestUCondo.Infra.Data.Repository
 {
-    public class UserRepository : Repository<User>, IUserRepository
+    public class AccountRepository : Repository<Account>, IAccountRepository
     {
         private readonly DefaultDbContext _context;
 
-        public UserRepository(DefaultDbContext context) : base(context)
+        public AccountRepository(DefaultDbContext context) : base(context)
         {
             _context = context;
         }
 
-        public async Task AddAsync(User user, CancellationToken cancellationToken = default)
+        public async Task AddAsync(Account Account, CancellationToken cancellationToken = default)
         {
-            await _context.Usuarios.AddAsync(user, cancellationToken);
+            await _context.Accounts.AddAsync(Account, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
         }
 
-        public async Task UpdateAsync(User entity, CancellationToken cancellationToken = default)
+        public async Task UpdateAsync(Account entity, CancellationToken cancellationToken = default)
         {
-            _context.Set<User>().Update(entity);
+            _context.Set<Account>().Update(entity);
             await _context.SaveChangesAsync(cancellationToken);
         }
 
-        public async Task DeleteAsync(User user, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Account Account, CancellationToken cancellationToken = default)
         {
-            _context.Set<User>().Remove(user);
+            _context.Set<Account>().Remove(Account);
             await _context.SaveChangesAsync(cancellationToken);
         }
 
-        public async Task<(IEnumerable<User> Users, int TotalCount)> GetPaginatedAsync(
+        public async Task<(IEnumerable<Account> Accounts, int TotalCount)> GetPaginatedAsync(
             int page, int pageSize, string? search, CancellationToken cancellationToken)
         {
-            var query = _context.Set<User>().AsQueryable();
+            var query = _context.Set<Account>().AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(search))
             {
-                query = query.Where(u => u.Name.Contains(search) || u.Email.Contains(search));
+                query = query.Where(u => u.Descricao.Contains(search));
             }
 
             var totalCount = await query.CountAsync(cancellationToken);
 
-            var users = await query
-                .OrderBy(u => u.Name)
+            var Accounts = await query
+                .OrderBy(u => u.Descricao)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync(cancellationToken);
 
-            return (users, totalCount);
+            return (Accounts, totalCount);
         }
     }
 }

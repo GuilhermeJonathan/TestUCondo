@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TestUCondo.Application.Commands\TestUCondo.Application.Commands.csproj" />
     <ProjectReference Include="..\TestUCondo.Application.Queries\TestUCondo.Application.Queries.csproj" />
+    <ProjectReference Include="..\TestUCondo.Application\TestUCondo.Application.csproj" />
     <ProjectReference Include="..\TestUCondo.Infra.DataN\TestUCondo.Infra.Data.csproj" />
   </ItemGroup>
 

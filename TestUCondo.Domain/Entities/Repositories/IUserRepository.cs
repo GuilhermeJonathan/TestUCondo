@@ -9,5 +9,6 @@ namespace TestUCondo.Domain.Entities.Repositories
 
         Task<(IEnumerable<User> Users, int TotalCount)> GetPaginatedAsync(
             int page, int pageSize, string? search, CancellationToken cancellationToken);
+        Task UpdateAsync(User entity, CancellationToken cancellationToken = default);
     }
 }

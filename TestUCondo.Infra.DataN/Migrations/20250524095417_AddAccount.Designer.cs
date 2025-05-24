@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestUCondo.Infra.Data.Context;
 
@@ -11,9 +12,11 @@ using TestUCondo.Infra.Data.Context;
 namespace TestUCondo.Infra.Data.Migrations
 {
     [DbContext(typeof(DefaultDbContext))]
-    partial class DefaultDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250524095417_AddAccount")]
+    partial class AddAccount
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,9 +36,8 @@ namespace TestUCondo.Infra.Data.Migrations
                     b.Property<bool>("AceitaLancamento")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Codigo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("Codigo")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("DataAlteracao")
                         .HasColumnType("datetime2");
