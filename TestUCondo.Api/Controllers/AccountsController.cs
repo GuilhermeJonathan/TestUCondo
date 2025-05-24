@@ -52,6 +52,13 @@ namespace TestUCondo.Api.Controllers
             return Ok(result);
         }
 
+        [HttpGet("{id}/next-code")]
+        public async Task<IActionResult> GetNextAccountCode(long id)
+        {
+            var result = await _mediator.Send(new GetNextAccountCodeByIdQuery(id));
+            return Ok(result);
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetPaginated([FromQuery] int page = 1, [FromQuery] int pageSize = 10, [FromQuery] string? search = null)
         {
