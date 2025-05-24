@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TestUCondo.Application.Commands.AccountModule.Command;
+using TestUCondo.Application.Queries.AccountModule.Query;
 
 namespace TestUCondo.Api.Controllers
 {
@@ -40,6 +41,23 @@ namespace TestUCondo.Api.Controllers
                 return Ok(result);
 
             return BadRequest(result);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(long id)
+        {
+            var result = await _mediator.Send(new GetAccountByIdQuery { Id = id });
+            if (result == null)
+                return NotFound();
+            return Ok(result);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetPaginated([FromQuery] int page = 1, [FromQuery] int pageSize = 10, [FromQuery] string? search = null)
+        {
+            var query = new GetAccountsPaginateQuery(page, pageSize, search);
+            var result = await _mediator.Send(query);
+            return Ok(result);
         }
     }
 }

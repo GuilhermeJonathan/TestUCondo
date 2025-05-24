@@ -11,5 +11,8 @@ namespace TestUCondo.Application.CrossCutting.DTO.Accounts
         public bool AceitaLancamento { get; set; }
         public int? IdPai { get; set; }
         public DateTime? DataAlteracao { get; set; }
+        public DateTime? DataCadastro { get; set; }
+
+        public List<AccountDTO> Filhos { get; set; } = new List<AccountDTO>();
     }
 }

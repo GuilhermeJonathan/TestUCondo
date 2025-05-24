@@ -15,6 +15,12 @@ namespace TestUCondo.Infra.Data.Repository
             _context = context;
         }
 
+        public async Task<Account?> GetAsync(long Id, CancellationToken cancellationToken = default)
+        {
+            return await _context.Accounts.Include(a => a.Filhos)
+                        .FirstOrDefaultAsync(a => a.Id == Id, cancellationToken);
+        }
+
         public async Task AddAsync(Account Account, CancellationToken cancellationToken = default)
         {
             await _context.Accounts.AddAsync(Account, cancellationToken);
@@ -36,7 +42,7 @@ namespace TestUCondo.Infra.Data.Repository
         public async Task<(IEnumerable<Account> Accounts, int TotalCount)> GetPaginatedAsync(
             int page, int pageSize, string? search, CancellationToken cancellationToken)
         {
-            var query = _context.Set<Account>().AsQueryable();
+            var query = _context.Set<Account>().Include(a => a.Filhos).AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(search))
             {
