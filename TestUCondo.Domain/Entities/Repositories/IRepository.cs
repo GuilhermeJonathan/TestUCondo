@@ -19,7 +19,7 @@ namespace TestUCondo.Domain.Entities.Repositories
         TEntity GetById(long id);
         Task<TEntity> GetByIdAsync(long id);
         IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> predicate);
-        Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken);
         void Update(TEntity entity);
         Task UpdateAsync(TEntity entity);
     }

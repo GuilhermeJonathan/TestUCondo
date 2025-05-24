@@ -59,5 +59,16 @@ namespace TestUCondo.Api.Controllers
             var result = await _mediator.Send(query);
             return Ok(result);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(long id)
+        {
+            var command = new DeleteAccountCommand(id);
+            var result = await _mediator.Send(command);
+            if (result.Success)
+                return Ok(result);
+
+            return BadRequest(result);
+        }
     }
 }

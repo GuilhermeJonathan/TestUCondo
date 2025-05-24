@@ -100,9 +100,9 @@ namespace TestUCondo.Infra.Data.Repository.Base
             return _context.Set<TEntity>().Where(predicate);
         }
 
-        public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate)
+        public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken)
         {
-            return await _context.Set<TEntity>().Where(predicate).ToListAsync();
+            return await _context.Set<TEntity>().Where(predicate).ToListAsync(cancellationToken);
         }
 
         public virtual void Update(TEntity entity)
