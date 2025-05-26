@@ -7,6 +7,7 @@ using TestUCondo.Application.Commands.UsuarioModule.Handler;
 using TestUCondo.Application.Profiles;
 using TestUCondo.Application.Queries.UsuarioModule.Handler;
 using TestUCondo.Domain.Entities.Repositories;
+using TestUCondo.Domain.Services;
 using TestUCondo.Infra.Data.Context;
 using TestUCondo.Infra.Data.Repository;
 
@@ -22,6 +23,7 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetUs
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<IAccountCodeSuggestionService, AccountCodeSuggestionService>();
 
 builder.Services.AddDbContext<DefaultDbContext>(options =>
     options.UseSqlServer(
