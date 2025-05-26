@@ -21,6 +21,13 @@ namespace TestUCondo.Infra.Data.Repository
                         .FirstOrDefaultAsync(a => a.Id == Id, cancellationToken);
         }
 
+        public async Task<List<Account>> GetAllByPrefixAsync(string prefix, CancellationToken cancellationToken)
+        {
+            return await _context.Accounts
+                .Where(a => a.Codigo.StartsWith(prefix + "."))
+                .ToListAsync(cancellationToken);
+        }
+
         public async Task AddAsync(Account Account, CancellationToken cancellationToken = default)
         {
             await _context.Accounts.AddAsync(Account, cancellationToken);
