@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUCondo.Api", "TestUCond
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUCondo.Application.CrossCutting", "TestUCondo.Application.CrossCutting\TestUCondo.Application.CrossCutting.csproj", "{A3B16626-4E74-460B-A9BA-0764106295C4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Test", "4 - Test", "{F68FB5C1-EEB4-458D-AE5C-0967136C6824}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUCondo.Test", "TestUCondo.Test\TestUCondo.Test.csproj", "{AF2DCF9F-C0A2-4CFE-A34E-21077A57B279}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,10 @@ Global
 		{A3B16626-4E74-460B-A9BA-0764106295C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3B16626-4E74-460B-A9BA-0764106295C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3B16626-4E74-460B-A9BA-0764106295C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF2DCF9F-C0A2-4CFE-A34E-21077A57B279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF2DCF9F-C0A2-4CFE-A34E-21077A57B279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF2DCF9F-C0A2-4CFE-A34E-21077A57B279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF2DCF9F-C0A2-4CFE-A34E-21077A57B279}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +79,7 @@ Global
 		{9EB62220-7F5D-472B-9EDF-1ADB713C5CE5} = {7BC52E23-BE50-4C9F-A16A-297A074BECF8}
 		{57E96990-D335-EE2A-200A-B19AC1C1D2E9} = {467B0CE1-FAC7-4742-8F55-77CA6627A0DF}
 		{A3B16626-4E74-460B-A9BA-0764106295C4} = {43C46EC7-D7C8-423A-B0AB-A609E0513F79}
+		{AF2DCF9F-C0A2-4CFE-A34E-21077A57B279} = {F68FB5C1-EEB4-458D-AE5C-0967136C6824}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8ADB3881-59B8-4261-B6EB-5E8B31957DCC}
