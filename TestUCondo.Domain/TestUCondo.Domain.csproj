@@ -10,4 +10,8 @@
     <ProjectReference Include="..\TestUCondo.Application.CrossCutting\TestUCondo.Application.CrossCutting.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
 </Project>

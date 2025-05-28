@@ -7,15 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="14.0.0" />
-    <PackageReference Include="FluentValidation" Version="12.0.0" />
-    <PackageReference Include="MediatR" Version="12.5.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TestUCondo.Application.CrossCutting\TestUCondo.Application.CrossCutting.csproj" />
-    <ProjectReference Include="..\TestUCondo.Domain\TestUCondo.Domain.csproj" />
-    <ProjectReference Include="..\TestUCondo.Infra.Asaas\TestUCondo.Infra.Asaas.csproj" />
   </ItemGroup>
 
 </Project>

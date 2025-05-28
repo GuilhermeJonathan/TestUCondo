@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TestUCondo.Application.CrossCutting\TestUCondo.Application.CrossCutting.csproj" />
     <ProjectReference Include="..\TestUCondo.Domain\TestUCondo.Domain.csproj" />
+    <ProjectReference Include="..\TestUCondo.Infra.Asaas\TestUCondo.Infra.Asaas.csproj" />
   </ItemGroup>
 
 </Project>
