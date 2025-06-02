@@ -24,7 +24,7 @@ namespace TestUCondo.Application.Queries.AccountModule.Handler
                 request.Page, request.PageSize, request.Search, cancellationToken);
 
             var accountDtos = accounts.Select(a => _mapper.Map<AccountDTO>(a));
-
+            
             return new PaginatedResultDto<AccountDTO>
             {
                 Items = accountDtos,

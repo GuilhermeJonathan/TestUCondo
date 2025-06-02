@@ -15,10 +15,7 @@ namespace TestUCondo.Application.Commands.AccountModule.Validations
                 .IsInEnum().WithMessage("Tipo de conta inválido.");
             
             RuleFor(x => x.Codigo)
-                .NotEmpty().WithMessage("Código é obrigatório.");
-            
-            RuleFor(x => x.AceitaLancamento)
-                .NotEmpty().WithMessage("Aceita Lançamento é obrigatório.");
+                .NotEmpty().WithMessage("Código é obrigatório.");                        
         }
     }
 }

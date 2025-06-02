@@ -59,7 +59,7 @@ namespace TestUCondo.Infra.Data.Repository
             var totalCount = await query.CountAsync(cancellationToken);
 
             var Accounts = await query
-                .OrderBy(u => u.Descricao)
+                .OrderBy(u => u.Codigo)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync(cancellationToken);
